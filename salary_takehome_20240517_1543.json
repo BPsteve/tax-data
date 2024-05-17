@@ -1,0 +1,67 @@
+[
+    {
+        "Salary": 100,
+        "Monthly Take-home": 77.63,
+        "Annual Take-home": 931.56
+    },
+    {
+        "Salary": 300,
+        "Monthly Take-home": 232.89,
+        "Annual Take-home": 2794.68
+    },
+    {
+        "Salary": 500,
+        "Monthly Take-home": 384.49,
+        "Annual Take-home": 4613.88
+    },
+    {
+        "Salary": 1000,
+        "Monthly Take-home": 762.64,
+        "Annual Take-home": 9151.68
+    },
+    {
+        "Salary": 1500,
+        "Monthly Take-home": 1115.81,
+        "Annual Take-home": 13389.72
+    },
+    {
+        "Salary": 3000,
+        "Monthly Take-home": 2100.26,
+        "Annual Take-home": 25203.12
+    },
+    {
+        "Salary": 4000,
+        "Monthly Take-home": 2777.14,
+        "Annual Take-home": 33325.68
+    },
+    {
+        "Salary": 5000,
+        "Monthly Take-home": 3413.44,
+        "Annual Take-home": 40961.28
+    },
+    {
+        "Salary": 6000,
+        "Monthly Take-home": 4049.74,
+        "Annual Take-home": 48596.88
+    },
+    {
+        "Salary": 7000,
+        "Monthly Take-home": 4686.04,
+        "Annual Take-home": 56232.48
+    },
+    {
+        "Salary": 10000,
+        "Monthly Take-home": 6401.02,
+        "Annual Take-home": 76812.24
+    },
+    {
+        "Salary": 15000,
+        "Monthly Take-home": 9075.98,
+        "Annual Take-home": 108911.76
+    },
+    {
+        "Salary": 25000,
+        "Monthly Take-home": 14204.28,
+        "Annual Take-home": 170451.36
+    }
+]

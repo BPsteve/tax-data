@@ -61,7 +61,7 @@ for salary in salaries:
 output_format = input("Enter the desired output format (csv, json, both): ").strip().lower()
 
 # Generate a timestamp
-timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M")
 
 if output_format == 'csv' or output_format == 'both':
     # Write the results to a CSV file with a timestamp
