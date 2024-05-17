@@ -1,13 +1,16 @@
-# List of salaries
-salaries = [100, 300, 500, 1000, 1500, 3000, 4000, 5000, 6000, 7000, 10000, 15000, 25000]  # Example list of monthly salaries
+import csv
+import json
+import datetime
 
-# Tax rates input for Virginia
+# List of salaries
+salaries = [100, 300, 500, 1000, 1500, 3000, 4000, 5000, 6000, 7000, 10000, 15000, 25000]
+
+# Set the state tax rate for Virginia
 statetax = 0.0472
 
 # Standard tax rates
-sstax = .062
-medicaretax = .0145
-
+sstax = 0.062
+medicaretax = 0.0145
 
 # Function to calculate federal tax based on salary
 def calculate_fed_tax(salary):
@@ -26,8 +29,9 @@ def calculate_fed_tax(salary):
     else:
         return 4863.47 + 0.37 * (salary - 17325)
 
+# Prepare the data for writing to files
+results = []
 
-# Iterate over the list of salaries and calculate taxes and take-home pay for each
 for salary in salaries:
     # Calculate the state tax
     stax = salary * statetax
@@ -46,7 +50,35 @@ for salary in salaries:
     monthly_takehome = salary - total_taxes
     annual_takehome = monthly_takehome * 12
 
-    # Display the results for each salary
-    print(f"For a monthly salary of ${salary:.2f}:")
-    print(f"  Monthly take-home pay will be: ${monthly_takehome:.2f}")
-    print(f"  Annual take-home pay will be: ${annual_takehome:.2f}\n")
+    # Append the results to the list
+    results.append({
+        "Salary": salary,
+        "Monthly Take-home": round(monthly_takehome, 2),
+        "Annual Take-home": round(annual_takehome, 2)
+    })
+
+# Ask the user for the desired output format
+output_format = input("Enter the desired output format (csv, json, both): ").strip().lower()
+
+# Generate a timestamp
+timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
+
+if output_format == 'csv' or output_format == 'both':
+    # Write the results to a CSV file with a timestamp
+    csv_filename = f'salary_takehome_{timestamp}.csv'
+    with open(csv_filename, mode='w', newline='') as csv_file:
+        writer = csv.DictWriter(csv_file, fieldnames=["Salary", "Monthly Take-home", "Annual Take-home"])
+        writer.writeheader()
+        for result in results:
+            writer.writerow(result)
+    print(f"Results have been written to '{csv_filename}'.")
+
+if output_format == 'json' or output_format == 'both':
+    # Write the results to a JSON file with a timestamp
+    json_filename = f'salary_takehome_{timestamp}.json'
+    with open(json_filename, mode='w') as json_file:
+        json.dump(results, json_file, indent=4)
+    print(f"Results have been written to '{json_filename}'.")
+
+if output_format not in ['csv', 'json', 'both']:
+    print("Invalid output format. Please enter 'csv', 'json', or 'both'.")
